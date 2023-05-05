@@ -1,0 +1,74 @@
+[
+    {
+        "id":1,
+        "prenom":"coumba",
+        "nom":"diongue",
+        "codeacces":"mbG123",
+        "montant":"10500Fcfa",
+        "solde":"5500Fcfa"
+
+    },
+    {
+        "id":2,
+        "prenom":"mbaye",
+        "nom":"diongue",
+        "codeacces":"mbG124",
+        "montant":"10500Fcfa",
+        "solde":"5500Fcfa"
+
+    },
+    {
+        "id":3,
+        "prenom":"coumba",
+        "nom":"diongue",
+        "codeacces":"mbG123",
+        "montant":"10500Fcfa",
+        "solde":"5500Fcfa"
+
+    },
+    {
+        "id":4,
+        "prenom":"mbaye",
+        "nom":"diongue",
+        "codeacces":"mbG124",
+        "montant":"10500Fcfa",
+        "solde":"5500Fcfa"
+
+    },
+    {
+        "id":1,
+        "prenom":"coumba",
+        "nom":"diongue",
+        "codeacces":"mbG123",
+        "montant":"10500Fcfa",
+        "solde":"5500Fcfa"
+
+    },
+    {
+        "id":2,
+        "prenom":"mbaye",
+        "nom":"diongue",
+        "codeacces":"mbG124",
+        "montant":"10500Fcfa",
+        "solde":"5500Fcfa"
+
+    },
+    {
+        "id":3,
+        "prenom":"coumba",
+        "nom":"diongue",
+        
+        "montant":"10500Fcfa",
+        "solde":"5500Fcfa"
+
+    },
+    {
+        "id":4,
+        "prenom":"mbaye",
+        "nom":"diongue",
+        "codeacces":"mbG124",
+        "montant":"10500Fcfa",
+        "solde":"5500Fcfa"
+
+    }
+]

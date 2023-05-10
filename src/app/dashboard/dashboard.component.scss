@@ -1,7 +1,33 @@
+.container{
+  margin-top: 10vh;
+  width: 100%;
+  //border: 2px solid black;
+  margin-left: 10%;
+  align-items: center;
+}
+.text{
+ width: 150px;
+ height: 40px;
+ background: #F2C0E7;
+ position: absolute;
+ top: -20px;
+ left: 35%;
+ display: flex;
+ align-items: center;
+ color: white;
+ justify-content: center;
+ padding-top: 5px;
+}
+.box{
+  border: 1px solid #F2C0E7;
+  position: relative;
+}
 .reservoir {
     height: 300px;
     margin: 0 10px;
     position: relative;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
   }
   
   .reservoir .progress {
@@ -18,4 +44,43 @@
     height: 100%;
     transition: all 0.3s ease-in-out;
   }
-  
+  .tab{
+    
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 800px;
+      margin: auto;
+      background-color: #f9f9f9;
+      margin-bottom: 20px;
+    }
+    
+    th, td {
+      border: 1px solid #F2C0E7;
+      padding: 8px;
+    }
+    
+    th {
+      background-color: #F2C0E7;
+      color: #fff;
+    }
+    
+   /*  tr:nth-child(even) {
+      background-color: #f2f2f2;
+    } */
+    
+    button {
+      background-color: #F2C0E7;
+      color: #fff;
+      border: none;
+      padding: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    button:hover {
+      background-color: #F2C0E7;
+    }
+    
+
+  }

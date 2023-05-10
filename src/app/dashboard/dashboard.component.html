@@ -1,25 +1,68 @@
 <div class="container">
   <div class="row ">
     <div class="col">
-      <div class="reservoir bg-info mb-5">
+      <div class="box">
+       <div class="text"><p>CAFE</p></div>
+      <div class="reservoir bg-info m-5">
         <div class="progress">
           <div class="progress-bar" role="progressbar" [style.width.%]="liquidHeight1"></div>
         </div>
       </div>
     </div>
+    </div>
     <div class="col">
-      <div class="reservoir bg-success">
+      <div class="box">
+      <div class="text"><p>LAIT</p></div> 
+      <div class="reservoir bg-success m-5">
         <div class="progress">
           <div class="progress-bar" role="progressbar" [style.width.%]="liquidHeight2"></div>
         </div>
       </div>
     </div>
+    </div>
     <div class="col">
-      <div class="reservoir bg-warning">
+      <div class="box">
+        <div class="text"><p>JUS D'ORANGE</p></div>
+      <div class="reservoir bg-warning m-5">
         <div class="progress">
           <div class="progress-bar" role="progressbar" [style.width.%]="liquidHeight3"></div>
         </div>
       </div>
     </div>
+    </div>
   </div>
+
+
+  <h1>Tableau d'abonnement</h1>
+
+  <table class="tab">
+    <thead>
+      <tr>
+        <th>Abonnement</th>
+        <th>Prix</th>
+        <th>Description</th>
+        <th>S'abonner</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Abonnement Basic</td>
+        <td>9,99€ / mois</td>
+        <td>Accès limité à certaines fonctionnalités</td>
+        <td><button>S'abonner</button></td>
+      </tr>
+      <tr>
+        <td>Abonnement Premium</td>
+        <td>19,99€ / mois</td>
+        <td>Accès complet à toutes les fonctionnalités</td>
+        <td><button>S'abonner</button></td>
+      </tr>
+      <tr>
+        <td>Abonnement Entreprise</td>
+        <td>99,99€ / mois</td>
+        <td>Accès complet pour une entreprise avec un nombre illimité d'utilisateurs</td>
+        <td><button>S'abonner</button></td>
+      </tr>
+    </tbody>
+  </table>
 </div>

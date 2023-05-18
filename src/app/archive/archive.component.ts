@@ -27,7 +27,7 @@ ngOnInit(): void {
   
 }
 
-restaurer(){
+restaurer(id: string){
 
 }
 }

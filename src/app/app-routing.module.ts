@@ -9,7 +9,7 @@ import { ModifComponent } from './modif/modif.component';
 import { AjoutComponent } from './ajout/ajout.component';
 const routes: Routes = [
 
-  {path:"login", component: LoginComponent  },
+  {path:"", component: LoginComponent  },
   {path:"users", component: UsersComponent},
   {path:"sidebar", component: SidebarComponent},
   {path:"dashboard", component:DashboardComponent},

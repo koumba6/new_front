@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,FormGroup,Validators } from '@angular/forms';
+import { UsersService } from '../services/users.service';
+import { Router } from '@angular/router';
+import { User } from '../models/admin';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,11 +13,17 @@ export class LoginComponent implements OnInit {
   registerForm!:FormGroup;
   title = 'angularvalidate';
   submitted = false;
-  spin = false;
-  invalid = false;
+  errorSms:any;
+  spin= false;
+  verifPass: any = true;
+  invalid= false;
+  errorMsg:any;
+  donnee:any;
+  
+  email: any;
+  msg: any;
 
-
-  constructor(private formBuilder: FormBuilder ){
+  constructor(private formBuilder: FormBuilder ,private authService: UsersService, private router:Router ){
 
   }
   ngOnInit(): void {
@@ -29,5 +38,40 @@ export class LoginComponent implements OnInit {
   onSubmit(){
     this.submitted = true
     this.spin = true
+
+    const user:User ={
+      email: this.registerForm.value.email,
+      password: this.registerForm.value.password
+    }
+
+    this.authService.getConnexion(user).subscribe(
+      {
+        next: res=>{
+          console.log(res);
+          let infoConnexion = res;
+          if(infoConnexion.data){
+            this.router.navigateByUrl('sidebar');
+          }
+      },
+
+      error: error =>{
+
+        setTimeout(()=> {this.spin = false; this.errorSms = false;},2000)
+        if(error) {
+          this.msg = "Email ou mot de passe incorrect!";
+          this.registerForm = this.formBuilder.group(
+            {
+              email: [''],
+              password: [''],
+            })
+
+        }
+        setTimeout(()=> {this.msg ='';},2000)
+      }
+      }
+    )
+
   }
-}
+
+  }
+

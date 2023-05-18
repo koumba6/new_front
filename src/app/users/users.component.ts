@@ -1,17 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import User from '../../modele/users.json';
+//import User from '../../modele/users.json';
 import Swal from 'sweetalert2';
+import { HttpClient } from '@angular/common/http';
+import { Abonnement } from '../models/type';
+import { AbonnementService } from '../services/abonnement.service';
+import { Router } from '@angular/router';
 
 
-interface donne {
-  
-  prenom:string;
-  nom:string;
-  
-  montant:string;
-  solde:string
 
-}
 
 @Component({
   selector: 'app-users',
@@ -21,27 +17,31 @@ interface donne {
 export class UsersComponent implements OnInit{
   pages: number =1;
   searchText:any;
-  constructor (){}
+  arch:boolean=true;
 
-  users : donne[] = User;
+  
+
+  Abonnement!:any[];
+
+
+  constructor(private abonnement:AbonnementService,  httpclient: HttpClient , private router:Router){}
 
   ngOnInit(): void {
-    
+   // this.getDonnees()
+    // this.abonnement.getUsers().subscribe(
+    //   (data) => {
+    //    console.log(data);
+    //    this.Abonnement = data;
+    //   }
+    //  )
   }
  
+  getDonnees = () => {
 
 
-  recupereDonne(id: any,prenom: any,nom: any,codeacces: any,montant:any,solde:any){
-    Swal.fire({
-      title: 'Voulez-vous vraiment modifier cet utilisateur?',
-      icon: 'warning',
-      confirmButtonColor: "#B82010",
-      cancelButtonColor: "green" ,
-      showCancelButton: true,
-      confirmButtonText: 'oui!',
-      cancelButtonText: 'Annuler',
+     
+
   
-    })
   }
   
   
@@ -53,7 +53,7 @@ export class UsersComponent implements OnInit{
    }
   
    delete(id: string) {
-  
+
     Swal.fire({
       title: 'Voulez-vous vraiment archiver cet utilisateur?',
       icon: 'warning',
@@ -76,56 +76,20 @@ export class UsersComponent implements OnInit{
           }
         })
   
-        
+        // this.abonnement.Delete(id).subscribe(()=>{
+        //   Toast.fire({
+        //     icon: 'success',
+        //     title: `Archivé avec succés`
+        //   })
+        //   this.getDonnees()
+        // })
       }
     })
   
     }
   
-    /* modifier(){
-      if(!this.registerForm.valid){
-        return
-      }
-      const id = this.id
-      console.log(this.registerForm.value)
-      this.userService.update(id,this.registerForm.value).subscribe(()=> {
-        this.getDonnees()
   
-      })
-      const Toast = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.addEventListener('mouseenter', Swal.stopTimer)
-          toast.addEventListener('mouseleave', Swal.resumeTimer)
-        }
-      })
-  
-      this.userService.update(id,this.registerForm.value).subscribe({
-        next: (user) => {
-  
-          Toast.fire({
-            icon: 'success',
-            title: ` modifié avec succés`
-          })
-  
-          setTimeout(() => {
-            this.tabOn = true
-          }, 3500)
-        },
-        error: (err) => {
-          this.signupError = err.error.message
-          setTimeout(() => {
-            this.signupError = null;
-          }, 5000)
-        },
-        complete: () => console.log("complete")
-      })
-  
-    } */
+    archive(){}
 }
 
 

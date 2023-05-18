@@ -1,6 +1,6 @@
-import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import { NgModule,} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import { HttpClient, HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -14,8 +14,14 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ArchiveComponent } from './archive/archive.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { Socket ,SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
 
-
+const config: SocketIoConfig={
+  url: 'http://localhost:3000/',
+  options : {
+    transports : ['websocket']
+  }
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +37,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 
     BrowserModule,
     AppRoutingModule,
+   
     HttpClientModule,
     CommonModule,
     ReactiveFormsModule,
@@ -38,8 +45,10 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     Ng2SearchPipeModule,
     NgxPaginationModule,
     NgClass,
-    NgStyle
+    NgStyle,
+    SocketIoModule.forRoot(config),
   ],
+  
   providers: [],
   bootstrap: [AppComponent]
 })

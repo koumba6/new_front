@@ -35,10 +35,10 @@
 
   <h1>Tableau d'abonnement</h1>
 
-  <table class="tab">
-    <thead>
-      <tr>
-        <th>Abonnement</th>
+  <table class="tab w-100">
+    <thead >
+      <tr   >
+        <th>Type</th>
         <th>Prix</th>
         <th>Description</th>
         <th>S'abonner</th>
@@ -46,22 +46,22 @@
     </thead>
     <tbody>
       <tr>
-        <td>Abonnement Basic</td>
-        <td>9,99€ / mois</td>
-        <td>Accès limité à certaines fonctionnalités</td>
-        <td><button>S'abonner</button></td>
+        <td>princesse</td>
+        <td>9,99 / mois</td>
+        <td>Accès limité au Lait</td>
+        <td><a routerLink="/ajout/"><button (click)="ajout(1)">S'abonner</button></a></td>
       </tr>
       <tr>
-        <td>Abonnement Premium</td>
-        <td>19,99€ / mois</td>
-        <td>Accès complet à toutes les fonctionnalités</td>
-        <td><button>S'abonner</button></td>
+        <td>khouss</td>
+        <td>19,99 / mois</td>
+        <td>Accès limité au café</td>
+        <td><a routerLink="/ajout/"><button (click)="ajout(2)">S'abonner</button></a></td>
       </tr>
       <tr>
-        <td>Abonnement Entreprise</td>
-        <td>99,99€ / mois</td>
-        <td>Accès complet pour une entreprise avec un nombre illimité d'utilisateurs</td>
-        <td><button>S'abonner</button></td>
+        <td>xeweul</td>
+        <td>99,99 / mois</td>
+        <td>Accès complet pour toute la fontaine </td>
+        <td> <a routerLink="/ajout/"><button (click)="ajout(3)">S'abonner</button></a></td>
       </tr>
     </tbody>
   </table>

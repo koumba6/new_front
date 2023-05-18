@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import profils from '../../modele/profil.json';
 import { Router } from '@angular/router';
-
+import { User } from '../models/admin';
+import { UsersService } from '../services/users.service';
+ 
 interface DONNE {
   prenom:string;
   nom:string;
@@ -30,7 +32,7 @@ export class SidebarComponent implements OnInit{
   
   liquidHeight3: number = 50; 
 
-  constructor(private router: Router){}
+  constructor(private router: Router ,private userService: UsersService){}
 
 
 
@@ -62,7 +64,10 @@ modif(){
   this.modife=true;
 };
 
+
+
   logout(): void {
-    
+    this.userService.Logout()
   }
+  
 }

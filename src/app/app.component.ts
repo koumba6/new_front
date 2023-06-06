@@ -12,7 +12,7 @@ export class AppComponent {
   title = 'front';
 
   showLogin: boolean = false;
-  localStatus = localStorage.getItem('currentUser');
+  localStatus = localStorage.getItem('access_token');
   constructor(private auth: UsersService, private router: Router, private http: HttpClient) {
 
     router.events.forEach((event) => {

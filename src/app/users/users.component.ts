@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 //import User from '../../modele/users.json';
 import Swal from 'sweetalert2';
 import { HttpClient } from '@angular/common/http';
-import { Abonnement } from '../models/type';
-import { AbonnementService } from '../services/abonnement.service';
+import { AbonnementType } from '../models/type';
+import { Abonnement } from '../services/abonnement.service';
+import { User } from '../models/admin';
+import { UsersService } from '../services/users.service';
 import { Router } from '@angular/router';
 
 
@@ -21,24 +23,24 @@ export class UsersComponent implements OnInit{
 
   
 
-  Abonnement!:any[];
+  User!:any[];
 
 
-  constructor(private abonnement:AbonnementService,  httpclient: HttpClient , private router:Router){}
+  constructor(private abonnement:Abonnement, private userservice:UsersService,  httpclient: HttpClient , private router:Router){}
 
   ngOnInit(): void {
-   // this.getDonnees()
-    // this.abonnement.getUsers().subscribe(
-    //   (data) => {
-    //    console.log(data);
-    //    this.Abonnement = data;
-    //   }
-    //  )
+    this.getDonnees()
+     
   }
  
   getDonnees = () => {
 
-
+return this.abonnement.getUsers().subscribe(
+  (data) => {
+   console.log(data);
+   this.User = data;
+  }
+)
      
 
   

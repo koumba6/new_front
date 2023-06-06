@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   donnee:any;
   
   email: any;
-  msg: any;
+  msg: string | null =null ;
 
   constructor(private formBuilder: FormBuilder ,private authService: UsersService, private router:Router ){
 
@@ -48,10 +48,12 @@ export class LoginComponent implements OnInit {
       {
         next: res=>{
           console.log(res);
-          let infoConnexion = res;
-          if(infoConnexion.data){
-            this.router.navigateByUrl('sidebar');
-          }
+          //let infoConnexion = res;
+          localStorage.setItem('access_token', res.token);
+          this.router.navigateByUrl('sidebar');
+          /* if(infoConnexion.data){
+            
+          } */
       },
 
       error: error =>{

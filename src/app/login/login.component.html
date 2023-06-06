@@ -11,10 +11,11 @@
                   <form class="row_ w-100" id="form" (ngSubmit)="onSubmit()" [formGroup]="registerForm">
                     <h1 style="text-align: center;margin-bottom: 50px;">Connexion</h1>
                          
-                    <!-- <div class="input-group flex-nowrap">
-                        <span class="input-group-text" id="addon-wrapping">@</span>
-                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
-                      </div> -->
+                   <div>
+                    <p class="text-danger" *ngIf="msg">
+                      {{msg}}
+                    </p>
+                   </div>
                     <div class="col-md-12 mb-3">
                         <span><svg width="25" height="25" viewBox="0 0 33 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M32.3748 7.95596C32.6262 7.76145 33 7.94341 33 8.25085V21.082C33 22.7448 31.6143 24.0938 29.9062 24.0938H3.09375C1.38574 24.0938 0 22.7448 0 21.082V8.25713C0 7.94341 0.367383 7.76772 0.625195 7.96223C2.06895 9.05398 3.9832 10.4406 10.5574 15.09C11.9174 16.0562 14.2119 18.0891 16.5 18.0766C18.801 18.0954 21.1406 16.0186 22.449 15.09C29.0232 10.4406 30.9311 9.04771 32.3748 7.95596ZM16.5 16.0625C17.9953 16.0876 20.148 14.2304 21.2309 13.4649C29.7838 7.42263 30.4348 6.89558 32.407 5.38972C32.7809 5.10737 33 4.66816 33 4.20386V3.01172C33 1.349 31.6143 0 29.9062 0H3.09375C1.38574 0 0 1.349 0 3.01172V4.20386C0 4.66816 0.219141 5.1011 0.592969 5.38972C2.56523 6.88931 3.21621 7.42263 11.7691 13.4649C12.852 14.2304 15.0047 16.0876 16.5 16.0625Z" fill="black"/>

@@ -1,11 +1,14 @@
+
+
 <div class="container">
+
   <div class="row ">
     <div class="col">
       <div class="box">
        <div class="text"><p>CAFE</p></div>
       <div class="reservoir bg-info m-5">
         <div class="progress">
-          <div class="progress-bar" role="progressbar" [style.width.%]="liquidHeight1"></div>
+          <div class="progress-bar" role="progressbar" [style.width.%]="donnee"></div>
         </div>
       </div>
     </div>
@@ -41,28 +44,102 @@
         <th>Type</th>
         <th>Prix</th>
         <th>Description</th>
-        <th>S'abonner</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>princesse</td>
-        <td>9,99 / mois</td>
-        <td>Accès limité au Lait</td>
-        <td><a routerLink="/ajout/"><button (click)="ajout(1)">S'abonner</button></a></td>
-      </tr>
-      <tr>
-        <td>khouss</td>
-        <td>19,99 / mois</td>
-        <td>Accès limité au café</td>
-        <td><a routerLink="/ajout/"><button (click)="ajout(2)">S'abonner</button></a></td>
-      </tr>
-      <tr>
-        <td>xeweul</td>
-        <td>99,99 / mois</td>
-        <td>Accès complet pour toute la fontaine </td>
-        <td> <a routerLink="/ajout/"><button (click)="ajout(3)">S'abonner</button></a></td>
+      <tr *ngFor="let Abonnement of AbonnementType | paginate: { itemsPerPage: 3, currentPage: pages }" >
+        <td >
+          {{Abonnement.type}}
+      </td>
+      <td >
+          {{Abonnement.prix}}
+      </td>
+      
+      <td >
+          {{Abonnement.description}}
+      </td>
+     
+
+      <td >
+        <button (click)="Ajoute(Abonnement._id,Abonnement.prix,Abonnement.type)" style="border: none;background-color:#F2C0E7;" type="submit" data-bs-toggle="modal" data-bs-target="#exampleModal">
+         Créer
+        </button>
+      
+      </td>
       </tr>
     </tbody>
   </table>
+</div>
+
+
+<!-- <button (click)="delete(abonnement._id)" style="border: none;background-color: white;" type="submit">
+  <svg width="32" height="36" viewBox="0 0 32 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M5.05 36C4.225 36 3.51875 35.7063 2.93125 35.1188C2.34375 34.5313 2.05 33.825 2.05 33V4.5H0V1.5H9.4V0H22.6V1.5H32V4.5H29.95V33C29.95 33.8 29.65 34.5 29.05 35.1C28.45 35.7 27.75 36 26.95 36H5.05ZM26.95 4.5H5.05V33H26.95V4.5ZM10.35 28.7H13.35V8.75H10.35V28.7ZM18.65 28.7H21.65V8.75H18.65V28.7Z" fill="#DD1010"/>
+      </svg>
+      
+</button> -->
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 justify-content-center" id="exampleModalLabel" style="color: #F2C0E7;">inscription</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="onSubmit()" [formGroup]="registerForm" >
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Prenom</label>
+            <input type="text" class="form-control" formControlName="prenom" id="prenom" name="prenom">
+            <div *ngIf="registerForm.controls['prenom'].dirty && registerForm.controls['prenom'].errors"
+                      class="text-danger">
+                      <div *ngIf="registerForm.controls['prenom'].errors['required']">
+                        champ requis
+                      </div>
+                    </div>
+          </div>
+          
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Nom</label>
+            <input type="text" class="form-control" formControlName="nom" id="nom" name="nom">
+
+            <div *ngIf="registerForm.controls['nom'].dirty && registerForm.controls['nom'].errors"
+                      class="text-danger">
+                      <div *ngIf="registerForm.controls['nom'].errors['required']">
+                        champ requis
+                      </div>
+
+                    </div>
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">CodeAcces</label>
+            <input type="text" class="form-control" formControlName="code" id="code" name="code">
+
+            <div *ngIf="registerForm.controls['code'].dirty && registerForm.controls['code'].errors"
+                              class="text-danger">
+                              <div
+                                *ngIf="registerForm.controls['code'].dirty && registerForm.controls['code'].errors['required']">
+                                champ requis
+                              </div>
+                              <div
+                                *ngIf="!registerForm.controls['code'].errors['required'] && registerForm.controls['code'].errors['maxength']">
+                                code minimun 4 caractères
+                              </div>
+                            </div>
+
+                            
+          </div>
+          <div class="pb-5 col-md-12">
+            <button type="submit" class="btn btn-pink px-4 float-end mt-4 submit "> Ajouter
+              <span class="visually" *ngIf="!spin"></span>
+              <span class="" *ngIf="!spin" role="status" aria-hidden="false" style="color: white;"></span>
+            </button>
+          </div>
+        </form>
+      </div>
+      
+    </div>
+  </div>
 </div>

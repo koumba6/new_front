@@ -23,6 +23,7 @@ export class SidebarComponent implements OnInit{
   users:boolean=false;
   dash:boolean=true;
   modife:boolean=false;
+  ajouter:boolean=false
 
   profils! :any;
 
@@ -49,25 +50,36 @@ afficherUser(){
 // this.users ? this.users=false : this.users=true
 this.users=true
 this.dash=false;
+this.ajouter=false;
 this.modife=false;
+
 };
 
 cacher(){
 this.users=false; 
 this.dash=true;
 this.modife=true;
+this.ajouter=false;
 }
 
 modif(){
   this.users=false;
   this.dash=false;
+  this.ajouter=false;
   this.modife=true;
 };
+ajoute(){
+this.users=false;
+this.dash=false;
+this.ajouter=true;
+this.modife=false;
 
+}
 
 
   logout(): void {
     this.userService.Logout()
   }
+  
   
 }

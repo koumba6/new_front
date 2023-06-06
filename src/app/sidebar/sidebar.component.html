@@ -57,7 +57,7 @@
     </div>
 
     
-      <div class="d-flex justify-content-center">
+      <!-- <div class="d-flex justify-content-center">
         <div class="d-flex justify-content-center align-items-center div">
           <svg width="38" height="38" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -68,21 +68,23 @@
 
           
         </div>
-      </div>
+      </div> -->
    
 
 
-    <div class="d-flex justify-content-center" (click)="modif()">
-      <div class="d-flex justify-content-center align-items-center div" >
-        <svg width="38" height="38" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" role="button" >
-          <path
-            d="M10 40V24H4L24 6L34 14.85V9H38V18.55L44 23.9787H38V40H26.5V28H21.5V40H10ZM13 37H18.5V25H29.5V37H35V19.95L24 9.95L13 19.95V37ZM19.75 19.5H28.25C28.25 18.4 27.825 17.4917 26.975 16.775C26.125 16.0583 25.1333 15.7 24 15.7C22.8667 15.7 21.875 16.0557 21.025 16.7671C20.175 17.4785 19.75 18.3895 19.75 19.5Z"
-            fill="black" />
-        </svg>
-
-        <!-- <a href="" class="text-black">modification </a> -->
+    
+      <div class="d-flex justify-content-center" (click)="modif()">
+        <div class="d-flex justify-content-center align-items-center div" >
+          <svg width="32" height="29" viewBox="0 0 33 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M29.4643 12.6875H27.6964V8.60938C27.6964 3.86289 22.6728 0 16.5 0C10.3272 0 5.30357 3.86289 5.30357 8.60938V12.6875H3.53571C1.58371 12.6875 0 13.9053 0 15.4062V26.2812C0 27.7822 1.58371 29 3.53571 29H29.4643C31.4163 29 33 27.7822 33 26.2812V15.4062C33 13.9053 31.4163 12.6875 29.4643 12.6875ZM21.8036 12.6875H11.1964V8.60938C11.1964 6.36074 13.5757 4.53125 16.5 4.53125C19.4243 4.53125 21.8036 6.36074 21.8036 8.60938V12.6875Z" fill="black"/>
+            </svg>
+            
+          modification
+  
+          <!-- <a href="" class="text-black">modification </a> -->
+        </div>
       </div>
-    </div>
+   
 
 
   </div>
@@ -93,6 +95,6 @@
     <app-dashboard *ngIf="dash"></app-dashboard>
     <app-users *ngIf="users"></app-users>
     <app-modif *ngIf="modife"></app-modif>
-    
+    <!-- <app-ajout *ngIf="ajouter"></app-ajout> -->
   </div>
 </div>  

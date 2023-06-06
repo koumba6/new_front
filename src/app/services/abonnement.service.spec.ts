@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AbonnementService } from './abonnement.service';
+import { Abonnement } from './abonnement.service';
 
 describe('AbonnementService', () => {
-  let service: AbonnementService;
+  let service: Abonnement;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(AbonnementService);
+    service = TestBed.inject(Abonnement);
   });
 
   it('should be created', () => {

@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { UsersComponent } from './users/users.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { AjoutComponent } from './ajout/ajout.component';
 import { ModifComponent } from './modif/modif.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule, NgClass, NgStyle } from '@angular/common';
@@ -27,8 +26,7 @@ const config: SocketIoConfig={
     AppComponent,
     LoginComponent,
     UsersComponent,
-    DashboardComponent,
-    AjoutComponent,
+    DashboardComponent, 
     ModifComponent,
     ArchiveComponent,
     SidebarComponent

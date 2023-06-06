@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
-
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -70,7 +70,19 @@ console.log(this.registerForm.value);
 }
 console.log(user);
 
-const ids= localStorage.getItem('id')?.replace(/"/g, '');
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'center-end',
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+})
+
+const ids= localStorage.getItem('access_token')?.replace(/"/g, '');
 const id = ids?.split(' ').join('')
 console.log(id);
 
@@ -85,6 +97,12 @@ return this.userService.update(id,user).subscribe(
         password1: [''],
         password2: [''],
       })
+
+      Toast.fire({
+        icon: 'success',
+        title: `Mot de passe modifié avec succés`
+      })
+
   }
 )
 

@@ -6,17 +6,17 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ArchiveComponent } from './archive/archive.component';
 import { ModifComponent } from './modif/modif.component';
-import { AjoutComponent } from './ajout/ajout.component';
+import { UserGuard } from './services/services/user.guard';
 const routes: Routes = [
 
-  {path:"", component: LoginComponent  },
-  {path:"users", component: UsersComponent},
-  {path:"sidebar", component: SidebarComponent},
-  {path:"dashboard", component:DashboardComponent},
-  {path:"archive", component:ArchiveComponent},
-  {path:"modif", component:ModifComponent},
-  {path:"ajout", component:AjoutComponent}
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
 
+  {path:"users", component: UsersComponent, canActivate:[UserGuard] },
+  {path:"sidebar", component: SidebarComponent, canActivate:[UserGuard]},
+  {path:"dashboard", component:DashboardComponent,canActivate:[UserGuard]},
+  {path:"archive", component:ArchiveComponent,canActivate:[UserGuard]},
+  {path:"modif", component:ModifComponent, canActivate:[UserGuard]},
+  {path: '**', redirectTo: ""},
   
 
 ];

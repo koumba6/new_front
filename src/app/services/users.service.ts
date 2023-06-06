@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, map } from 'rxjs';
-import { env } from 'src/environments/env';
+//import { env } from 'src/environments/env';
 import { User } from '../models/admin';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -33,32 +33,40 @@ export class UsersService {
     //Connexion de l'utilisateur
 
   getConnexion(users:User){
-    return this.httpClient.post<User>(`${env.apiUrl}/api/login`,users).
+    return this.httpClient.post<any>(`http://localhost:3000/api/login`,users).
       pipe(map(users => {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
         //Ceci permet de garder l'utilisateur connecté entre les differentes pages
-        localStorage.setItem('currentUser', JSON.stringify(users.data?.token));
-        localStorage.setItem('id', JSON.stringify(users.data?.userId));
+        //localStorage.setItem('access_token', users.token);
+        localStorage.setItem('id', users.userId);
+        localStorage.setItem('email', users.email);
 
-        this.currentUserSubject.next(users);
+        //this.currentUserSubject.next(users);
         return users;
       }));
 
   }
+  getToken() {
+    return localStorage.getItem('access_token');
+  }
+  
+  get isLoggedIn(): boolean {
+    let authToken = this.getToken();
+    return authToken !== null && authToken !== undefined ? true : false;
+  }
 
    update(id:any,users:any){
-    return this.httpClient.patch<User>(`${env.apiUrl}/api/update/${id}`,users)
+    return this.httpClient.patch<User>(`http://localhost:3000/api/update/${id}`,users)
   } 
 
 
   Logout(){
-    let removeToken = localStorage.removeItem('access_token');
-    let removeConnectedUser = localStorage.removeItem('connectedUser');
-    if (removeToken == null && removeConnectedUser == null) {
+    localStorage.clear();
       this.router.navigate(['/']);
-    }
+    
   }
   capteur(){
     // return this.socket.fromEvent("capteur")
   } 
+
 }
